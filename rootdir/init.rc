@@ -528,16 +528,23 @@ service minimedia /usr/libexec/droid-hybris/system/bin/minimediaservice
     user media
     group audio camera
     ioprio rt 4
+    setenv LD_PRELOAD /usr/libexec/droid-hybris/system/lib/libOmxVdec.so
 
 service minisf /usr/libexec/droid-hybris/system/bin/minisfservice
     class main
     user system
     group graphics
+    setenv LD_PRELOAD /usr/libexec/droid-hybris/system/lib/libsurfaceflinger.so
 
 service miniaf /usr/libexec/droid-hybris/system/bin/miniafservice
     class main
     user system
     group audio
+
+service sensorservice /system/bin/sensorservice
+    class late_start
+    user root
+    group root
 
 service vold /system/bin/vold
     class core
