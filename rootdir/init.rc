@@ -715,6 +715,7 @@ service surfaceflinger /system/bin/surfaceflinger
     user system
     group graphics drmrpc
     onrestart restart zygote
+    setenv LD_PRELOAD /usr/libexec/droid-hybris/system/lib/libsurfaceflinger.so
     disabled
 
 service drm /system/bin/drmserver
